@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bébé arrive bientôt ❤️</title>
+  <meta name="theme-color" content="#f7efe7" />
+  <style>
+    :root{
+      --ink:#2b2927;
+      --muted:#766f69;
+      --paper:#fffdfa;
+      --cream:#f7efe7;
+      --accent:#b98563;
+      --accent-dark:#8f6247;
+      --line:rgba(43,41,39,.11);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:ui-rounded, "Avenir Next", Avenir, "Segoe UI", sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(185,133,99,.14), transparent 30%),
+        radial-gradient(circle at 90% 90%, rgba(185,133,99,.12), transparent 30%),
+        var(--cream);
+      overflow-x:hidden;
+    }
+    .wrap{
+      width:min(920px, calc(100% - 32px));
+      margin:auto;
+      padding:22px 0 54px;
+    }
+    .hero{
+      min-height:calc(100vh - 76px);
+      display:grid;
+      place-items:center;
+      text-align:center;
+      position:relative;
+    }
+    .card{
+      width:min(760px, 100%);
+      background:rgba(255,253,250,.84);
+      border:1px solid rgba(255,255,255,.8);
+      box-shadow:0 22px 70px rgba(70,52,39,.13);
+      backdrop-filter:blur(10px);
+      border-radius:34px;
+      padding:clamp(34px, 7vw, 72px) clamp(22px, 7vw, 72px);
+    }
+    .eyebrow{
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:.72rem;
+      font-weight:800;
+      color:var(--accent-dark);
+      margin-bottom:22px;
+    }
+    .baby{
+      font-size:clamp(3.8rem, 10vw, 6.5rem);
+      line-height:1;
+      margin-bottom:18px;
+      filter:drop-shadow(0 12px 14px rgba(0,0,0,.08));
+    }
+    h1{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:clamp(2.7rem, 8vw, 5.7rem);
+      line-height:.98;
+      margin:0;
+      letter-spacing:-.045em;
+      font-weight:600;
+    }
+    .subtitle{
+      margin:26px auto 0;
+      max-width:590px;
+      font-size:clamp(1.05rem, 2.6vw, 1.3rem);
+      line-height:1.65;
+      color:var(--muted);
+    }
+    .names{
+      margin-top:12px;
+      font-weight:800;
+      color:var(--ink);
+    }
+    .date{
+      margin:34px auto 26px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 18px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      font-weight:750;
+    }
+    .countdown{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+      margin:0 auto;
+      max-width:590px;
+    }
+    .unit{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:17px 8px 14px;
+    }
+    .number{
+      display:block;
+      font-size:clamp(1.55rem, 5vw, 2.6rem);
+      font-weight:850;
+      letter-spacing:-.04em;
+      color:var(--accent-dark);
+    }
+    .label{
+      display:block;
+      margin-top:4px;
+      text-transform:uppercase;
+      letter-spacing:.11em;
+      font-size:.61rem;
+      font-weight:800;
+      color:var(--muted);
+    }
+    .scroll{
+      margin-top:38px;
+      color:var(--muted);
+      font-size:.82rem;
+      animation:float 2s ease-in-out infinite;
+    }
+    @keyframes float{
+      50%{transform:translateY(7px)}
+    }
+    .story{
+      margin-top:10px;
+      display:grid;
+      gap:18px;
+    }
+    .panel{
+      background:var(--paper);
+      border-radius:26px;
+      padding:34px;
+      border:1px solid var(--line);
+      box-shadow:0 12px 35px rgba(70,52,39,.06);
+    }
+    .panel h2{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:clamp(1.9rem, 5vw, 3rem);
+      margin:0 0 15px;
+      letter-spacing:-.03em;
+    }
+    .panel p{
+      color:var(--muted);
+      line-height:1.75;
+      margin:0;
+      font-size:1.04rem;
+    }
+    .big{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:clamp(2.1rem, 6vw, 4rem);
+      margin:14px 0 0;
+      color:var(--accent-dark);
+    }
+    .footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:.85rem;
+      padding-top:22px;
+    }
+    .heart{color:var(--accent-dark)}
+    @media (max-width:520px){
+      .wrap{width:min(100% - 20px, 920px);padding-top:10px}
+      .card{border-radius:26px}
+      .countdown{gap:6px}
+      .unit{padding:13px 4px 11px;border-radius:14px}
+      .label{font-size:.52rem;letter-spacing:.06em}
+      .panel{padding:25px 21px}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="card">
+        <div class="eyebrow">Tu viens de scanner quelque chose d’important 👀</div>
+        <div class="baby">👶</div>
+        <h1>Une grande aventure<br>commence bientôt.</h1>
+        <p class="subtitle">
+          Dans quelques mois, nos vies vont changer pour toujours…
+          <span class="names">Anthony & Mathilde</span> ont une merveilleuse nouvelle à partager.
+        </p>
+
+        <div class="date">🗓️ Bébé prévu pour le 23 février 2027</div>
+
+        <div class="countdown" aria-label="Décompte avant l'arrivée de bébé">
+          <div class="unit"><span class="number" id="days">--</span><span class="label">Jours</span></div>
+          <div class="unit"><span class="number" id="hours">--</span><span class="label">Heures</span></div>
+          <div class="unit"><span class="number" id="minutes">--</span><span class="label">Minutes</span></div>
+          <div class="unit"><span class="number" id="seconds">--</span><span class="label">Secondes</span></div>
+        </div>
+
+        <div class="scroll">↓ Encore un peu de suspense ↓</div>
+      </div>
+    </section>
+
+    <section class="story">
+      <article class="panel">
+        <h2>La grande nouvelle ❤️</h2>
+        <p>
+          Oui, oui… vous avez bien compris. Un petit être est en route pour agrandir notre famille.
+          Nous avons encore du mal à réaliser que très bientôt, nous pourrons dire :
+        </p>
+        <div class="big">« Bonjour, bébé. »</div>
+      </article>
+
+      <article class="panel">
+        <h2>Le compte à rebours est lancé ⏳</h2>
+        <p>
+          Encore quelques mois de préparatifs, d'impatience, d'émotions et probablement de nuits beaucoup trop courtes.
+          Mais une chose est certaine : nous avons déjà énormément d'amour à lui donner.
+        </p>
+      </article>
+
+      <article class="panel" id="arrivalPanel">
+        <h2>Rendez-vous en février 2027 ✨</h2>
+        <p>
+          Merci de partager cette incroyable aventure avec nous.
+          Et surtout… gardez cette page précieusement : elle pourra évoluer avec nous.
+        </p>
+      </article>
+    </section>
+
+    <footer class="footer">
+      Fait avec beaucoup d'amour par Anthony & Mathilde <span class="heart">♥</span>
+    </footer>
+  </main>
+
+  <script>
+    // Date prévue d'accouchement : 23 février 2027 à 00:00 (heure de Paris)
+    const target = new Date("2027-02-23T00:00:00+01:00").getTime();
+
+    const pad = n => String(n).padStart(2, "0");
+
+    function updateCountdown(){
+      const now = Date.now();
+      let diff = target - now;
+
+      if(diff <= 0){
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        document.querySelector(".eyebrow").textContent = "Le grand jour est arrivé 🎉";
+        return;
+      }
+
+      const days = Math.floor(diff / 86400000);
+      diff %= 86400000;
+      const hours = Math.floor(diff / 3600000);
+      diff %= 3600000;
+      const minutes = Math.floor(diff / 60000);
+      diff %= 60000;
+      const seconds = Math.floor(diff / 1000);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = pad(hours);
+      document.getElementById("minutes").textContent = pad(minutes);
+      document.getElementById("seconds").textContent = pad(seconds);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
