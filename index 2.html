@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Une petite surprise 🍁</title>
+  <meta name="theme-color" content="#f7efe7">
+  <style>
+    :root{--ink:#2b2927;--muted:#766f69;--paper:#fffdfa;--cream:#f7efe7;--accent:#b98563;--accent-dark:#8f6247;--line:rgba(43,41,39,.11)}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;font-family:ui-rounded,"Avenir Next",Avenir,"Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 10%,rgba(185,133,99,.14),transparent 30%),radial-gradient(circle at 90% 90%,rgba(185,133,99,.12),transparent 30%),var(--cream)}
+    .wrap{width:min(920px,calc(100% - 32px));margin:auto;padding:22px 0 54px}
+    .hero{min-height:100vh;display:grid;place-items:center;text-align:center}
+    .card{width:min(760px,100%);background:rgba(255,253,250,.88);border:1px solid rgba(255,255,255,.85);box-shadow:0 22px 70px rgba(70,52,39,.13);backdrop-filter:blur(10px);border-radius:34px;padding:clamp(34px,7vw,72px) clamp(22px,7vw,72px)}
+    .eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;font-weight:800;color:var(--accent-dark);margin-bottom:22px}
+    .emoji{font-size:clamp(3.8rem,10vw,6.2rem);line-height:1;margin-bottom:18px;filter:drop-shadow(0 12px 14px rgba(0,0,0,.08))}
+    h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.7rem,8vw,5.5rem);line-height:.98;margin:0;letter-spacing:-.045em;font-weight:600}
+    .subtitle{margin:25px auto 30px;max-width:590px;font-size:clamp(1.05rem,2.6vw,1.28rem);line-height:1.65;color:var(--muted)}
+    .names{display:block;margin-top:10px;font-weight:800;color:var(--ink)}
+    .countdown-title{margin:8px 0 14px;font-size:.82rem;text-transform:uppercase;letter-spacing:.14em;font-weight:850;color:var(--accent-dark)}
+    .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 auto;max-width:590px}
+    .unit{background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px 8px 14px}
+    .number{display:block;font-size:clamp(1.55rem,5vw,2.6rem);font-weight:850;letter-spacing:-.04em;color:var(--accent-dark)}
+    .label{display:block;margin-top:4px;text-transform:uppercase;letter-spacing:.11em;font-size:.61rem;font-weight:800;color:var(--muted)}
+    .canada{margin:32px auto 0;max-width:610px;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:22px 24px;color:var(--muted);line-height:1.7;font-size:1rem}
+    .canada strong{color:var(--ink)}
+    .footer{text-align:center;color:var(--muted);font-size:.85rem;padding-top:22px}
+    @media (max-width:520px){.wrap{width:min(100% - 20px,920px);padding-top:10px}.card{border-radius:26px}.countdown{gap:6px}.unit{padding:13px 4px 11px;border-radius:14px}.label{font-size:.52rem;letter-spacing:.06em}.canada{padding:19px 18px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="card">
+        <div class="eyebrow">Tu as bien fait de scanner 👀</div>
+        <div class="emoji">🍁👶</div>
+        <h1>Plot twist.</h1>
+        <p class="subtitle">
+          On pensait que le Canada serait notre plus grande aventure de l'année…
+          <br><strong>Visiblement, on avait sous-estimé la suite.</strong>
+          <span class="names">Anthony &amp; Mathilde</span>
+        </p>
+        <div class="countdown-title">Avant l'arrivée du nouveau voyageur</div>
+        <div class="countdown" aria-label="Décompte avant l'arrivée">
+          <div class="unit"><span class="number" id="days">--</span><span class="label">Jours</span></div>
+          <div class="unit"><span class="number" id="hours">--</span><span class="label">Heures</span></div>
+          <div class="unit"><span class="number" id="minutes">--</span><span class="label">Minutes</span></div>
+          <div class="unit"><span class="number" id="seconds">--</span><span class="label">Secondes</span></div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      Fabriqué avec amour, un peu de suspense et beaucoup trop de sirop d'érable 🍁
+    </footer>
+  </main>
+  <script>
+    const target = new Date("2027-02-23T00:00:00+01:00").getTime();
+    const pad = n => String(n).padStart(2, "0");
+    function updateCountdown(){
+      let diff = target - Date.now();
+      if(diff <= 0){
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        document.querySelector(".eyebrow").textContent = "Le grand jour est arrivé 🎉";
+        return;
+      }
+      const days = Math.floor(diff / 86400000); diff %= 86400000;
+      const hours = Math.floor(diff / 3600000); diff %= 3600000;
+      const minutes = Math.floor(diff / 60000); diff %= 60000;
+      const seconds = Math.floor(diff / 1000);
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = pad(hours);
+      document.getElementById("minutes").textContent = pad(minutes);
+      document.getElementById("seconds").textContent = pad(seconds);
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
